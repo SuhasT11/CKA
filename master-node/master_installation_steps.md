@@ -182,3 +182,8 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
+
+***
+
+## Copy the kubeadm join command displayed after the master node setup
+
