@@ -57,12 +57,8 @@ containerd config default | sudo tee /etc/containerd/config.toml
 ### Step 4: Enable Systemd Cgroup Driver
 
 ```bash
-sudo nano /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 ```
-
-Update:
-
-    SystemdCgroup = true
 
 ### Step 5: Restart & Enable containerd
 
@@ -172,11 +168,6 @@ sudo systemctl enable --now kubelet
 ## 🔗 Join Worker Node to Cluster
 
 Use the `kubeadm join` command generated on the **master node**:
-
-```bash
-kubeadm join 10.0.0.16:6443 --token w3uu5b.sxc5p297yaein1d6 \
-    --discovery-token-ca-cert-hash sha256:20abd1067c0a8fb7cb8a21b5638dd17fd09702f9987557c9785ac30fce7796f5
-```
 
 ***
 
