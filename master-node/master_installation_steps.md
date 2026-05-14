@@ -57,12 +57,8 @@ containerd config default | sudo tee /etc/containerd/config.toml
 ### Step 4: Enable Systemd Cgroup Driver
 
 ```bash
-sudo nano /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 ```
-
-Update:
-
-    SystemdCgroup = true
 
 ### Step 5: Restart & Enable containerd
 
