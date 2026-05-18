@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend-pod
+  labels:
+    app: web            # what app
+    env: production     # which environment
+    tier: frontend      # which tier
+    version: "1.4.2"    # app version
+    team: UI      # owning team
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.25
