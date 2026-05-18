@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-annotation-pod
+  annotations:
+    # Build & deployment tracking
+    build-version: "1.4.2-rc1"
+    git-commit: "a3f9c2b"
+    build-url: "https://ci.company.com/builds/42"
+    deployed-by: "suhas@example.com"
+    deployment-time: "2024-01-15T09:30:00Z"
+
+    # Documentation & contacts
+    description: "Frontend web server for platform"
+    slack-channel: "#platform-alerts"
+
+    # Tool-specific config (Ingress example)
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
+    # Prometheus scraping hints
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8080"
+    prometheus.io/path: "/metrics"
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.25
