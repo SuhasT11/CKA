@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-demo
+spec:
+  containers:
+    - name: app
+      image: nginx:1.25
+      volumeMounts:
+        - name: scratch        # emptyDir mount
+          mountPath: /tmp/scratch
+        - name: host-logs      # hostPath mount
+          mountPath: /root/host-storage
+        - name: app-config     # configMap mount
+          mountPath: /etc/config
+  volumes:
+    - name: scratch
+      emptyDir: {}             # ephemeral, pod-scoped
+    - name: host-logs
+      hostPath:
+        path: /home/ubuntu/test-storage        # node directory
+        type: Directory
+    - name: app-config
+      configMap:
+        name: my-config        # existing ConfigMap
