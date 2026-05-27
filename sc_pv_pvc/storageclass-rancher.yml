@@ -1,0 +1,39 @@
+# 1. StorageClass (admin sets this once)
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fast
+provisioner: rancher.io/local-path   # lab
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+
+---
+# 2. PVC (developer requests storage)
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: app-data
+spec:
+  storageClassName: fast
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+# 3. Pod (mounts the PVC)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+spec:
+  containers:
+    - name: app
+      image: nginx:latest
+      volumeMounts:
+        - name: data
+          mountPath: /var/lib/demo/data
+  volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: app-data   # ← name from step 2
