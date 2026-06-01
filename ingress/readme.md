@@ -30,6 +30,7 @@ kubectl create ingress web-ingress \
 ```bash
 # Step 4: Verify ingress
 kubectl get ingress -n demo
+kubectl get ingressclass​
 kubectl describe ingress web-ingress -n demo
 ```
 
