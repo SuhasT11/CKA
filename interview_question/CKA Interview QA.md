@@ -1,4 +1,4 @@
-# CKA / CKAD Interview Questions & Answers
+# CKA Interview Questions & Answers
 
 -----
 
