@@ -1,7 +1,5 @@
 # CKA / CKAD Interview Questions & Answers
 
-> 15 questions per topic covering the full CKA/CKAD curriculum.
-
 -----
 
 ## Table of Contents
@@ -2019,5 +2017,3 @@
 > ```
 
 -----
-
-*This document covers all topics from the CKA/CKAD curriculum with 15 interview Q&As each — 300 questions total.*
