@@ -24,22 +24,6 @@ kubectl config set-context --current --namespace=dev-team
 
 ---
 
-## 🔹 Node Leases
-Check node heartbeat leases (used for node liveness):
-```bash
-kubectl get leases -n kube-node-lease
-```
-
----
-
-## 🔹 Public Config
-Inspect the kube-public namespace for cluster info:
-```bash
-kubectl get cm -n kube-public
-```
-
----
-
 ## 🔹 API Resources
 ### Namespace-scoped resources
 ```bash
@@ -107,7 +91,6 @@ kubectl describe pod nginx-pod -n dev-team
 ---
 
 ## 🔹 Useful Commands Recap
-- `kubectl get leases -n kube-node-lease` → Node heartbeat leases  
 - `kubectl get cm -n kube-public` → Cluster info ConfigMap  
 - `kubectl api-resources --namespaced=true` → Namespace-scoped resources  
 - `kubectl api-resources --namespaced=false` → Cluster-scoped resources  
