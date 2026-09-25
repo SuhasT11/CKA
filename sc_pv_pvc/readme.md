@@ -90,3 +90,26 @@ This guide covers the essential commands for working with **StorageClass (SC)**,
   ```
 
 ---
+
+## 🛠️ ConfigMap from File
+
+* **Create a sample configuration file**
+
+  ```bash
+  echo "environment=dev
+  logLevel=info
+  appName=myapp" > app.conf
+  ```
+
+* **Create ConfigMap**
+
+  ```bash
+  kubectl create configmap my-config --from-file=app.conf
+  ```
+
+* **Check ConfigMap**
+
+  ```bash
+  kubectl get configmap my-config -o yaml
+  ```
+
