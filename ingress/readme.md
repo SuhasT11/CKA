@@ -46,3 +46,46 @@ kubectl get ingress -A
 kubectl describe ingress -n demo
 kubectl logs -n ingress-nginx deploy/ingress-nginx-controller
 ```
+## Connect to an EKS Cluster
+
+### 1. Configure AWS credentials
+
+Configure your AWS credentials:
+
+```bash
+aws configure
+```
+
+Verify the configured credentials:
+
+```bash
+aws sts get-caller-identity
+```
+
+### 2. Update kubeconfig for the EKS cluster
+
+Update your local kubeconfig with the EKS cluster details:
+
+```bash
+aws eks update-kubeconfig --region <region> --name <cluster-name>
+```
+
+Example:
+
+```bash
+aws eks update-kubeconfig --region ap-south-1 --name my-eks-cluster
+```
+
+### 3. Verify the connection
+
+Verify that you can connect to the EKS cluster:
+
+```bash
+kubectl get nodes
+```
+
+You can also verify the current Kubernetes context:
+
+```bash
+kubectl config current-context
+```
