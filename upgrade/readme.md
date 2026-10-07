@@ -99,7 +99,7 @@ kubectl get pods -A
 1. Update Kubernetes repo:
    ```bash
    nano /etc/apt/sources.list.d/kubernetes.list
-   deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.36/deb/ /
+   deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.37/deb/ /
    sudo apt update
    ```
 
@@ -112,14 +112,14 @@ kubectl get pods -A
 3. Upgrade `kubeadm`:
    ```bash
    sudo apt-mark unhold kubeadm && \
-   sudo apt-get install -y kubeadm='1.36.0-1.1' && \
+   sudo apt-get install -y kubeadm='1.37.1-1.1' && \
    sudo apt-mark hold kubeadm
    ```
 
 4. Plan & apply upgrade:
    ```bash
    sudo kubeadm upgrade plan
-   sudo kubeadm upgrade apply v1.36.0
+   sudo kubeadm upgrade apply v1.37.1
    ```
 
 5. Drain node:
@@ -130,7 +130,7 @@ kubectl get pods -A
 6. Upgrade `kubelet` & `kubectl`:
    ```bash
    sudo apt-mark unhold kubelet kubectl && \
-   sudo apt-get install -y kubelet='1.36.0-1.1' kubectl='1.36.0-1.1' && \
+   sudo apt-get install -y kubelet='1.37.1-1.1' kubectl='1.37.1-1.1' && \
    sudo apt-mark hold kubelet kubectl
    ```
 
@@ -152,7 +152,7 @@ kubectl get pods -A
 1. Update repo:
    ```bash
    nano /etc/apt/sources.list.d/kubernetes.list
-   deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.36/deb/ /
+   deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.37/deb/ /
    sudo apt update
    ```
 
@@ -164,7 +164,7 @@ kubectl get pods -A
 3. Upgrade `kubeadm`:
    ```bash
    sudo apt-mark unhold kubeadm && \
-   sudo apt-get install -y kubeadm='1.36.0-1.1' && \
+   sudo apt-get install -y kubeadm='1.37.1-1.1' && \
    sudo apt-mark hold kubeadm
    ```
 
@@ -181,7 +181,7 @@ kubectl get pods -A
 6. Upgrade `kubelet` & `kubectl`:
    ```bash
    sudo apt-mark unhold kubelet kubectl && \
-   sudo apt-get install -y kubelet='1.36.0-1.1' kubectl='1.36.0-1.1' && \
+   sudo apt-get install -y kubelet='1.37.1-1.1' kubectl='1.37.1-1.1' && \
    sudo apt-mark hold kubelet kubectl
    ```
 
